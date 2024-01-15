@@ -1,0 +1,101 @@
+﻿@page
+@using DddInPractice.Logic;
+@model IndexModel
+@{
+    ViewData["Title"] = "Snack Machine";
+}
+
+<div class="text-center container">
+    <div class="row my-3">
+        <div class="col">
+            <form asp-page-handler="BuySnack" method="post">
+            <button class="btn btn-dark btn-lg">Buy a Snack</button>
+            </form>
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col">
+            <p>Money inserted: <span class="font-weight-bolder">@Model.MoneyInTransaction</span> </p>
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col">
+            <form asp-page-handler="InsertCent" method="post">
+                <button type="submit" class="btn btn-secondary btn-lg">Put 1C</button>
+            </form>
+        </div>
+        <div class="col">
+            <form asp-page-handler="InsertTenCent" method="post">
+                <button class="btn btn-secondary btn-lg">Put 10C</button>
+            </form>
+        </div>
+        <div class="col">
+            <form asp-page-handler="InsertQuarter" method="post">
+                <button class="btn btn-secondary btn-lg">Put 25C</button>
+            </form>
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col">
+            <form asp-page-handler="InsertDollar" method="post">
+                <button class="btn btn-secondary btn-lg">Put 1$</button>
+            </form>
+        </div>
+        <div class="col">
+            <form asp-page-handler="InsertFiveDollar" method="post">
+                <button class="btn btn-secondary btn-lg">Put 5$</button>
+            </form>
+        </div>
+        <div class="col">
+            <form asp-page-handler="InsertTwentyDollar" method="post">
+                <button class="btn btn-secondary btn-lg">Put 20</button>
+            </form>
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col">
+            <form asp-page-handler="ReturnMoney" method="post">
+                <button class="btn btn-dark btn-lg">Return Money</button>
+            </form>
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col alert-info">
+            <p>@Model.Message</p>
+        </div>
+    </div>
+    <div class="row my-3 font-weight-bolder">
+        <div class="col">
+            <p>Money Inside: <span class="font-weight-bolder">@Model.MoneyInside</span> </p>
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col">
+            <img src='Images/1c.png' />
+            <p class="d-inline font-weight-bolder">@Model.MoneyInside.OneCentCount</p>
+        </div>
+        <div class="col">
+            <img src='Images/10c.png' />
+            <p class="d-inline font-weight-bolder">@Model.MoneyInside.TenCentCount</p>
+        </div>
+        <div class="col">
+            <img src='Images/25c.png' />
+            <p class="d-inline font-weight-bolder">@Model.MoneyInside.QuarterCount</p>
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col">
+            <img src='Images/1d.png' />
+            <p class="d-inline font-weight-bolder">@Model.MoneyInside.OneDollarCount</p>
+        </div>
+        <div class="col">
+            <img src='Images/5d.png' />
+            <p class="d-inline font-weight-bolder">@Model.MoneyInside.FiveDollarCount</p>
+        </div>
+        <div class="col">
+            <img src='Images/20d.png' />
+            <p class="d-inline font-weight-bolder">@Model.MoneyInside.TwentyDollarCount</p>
+        </div>
+    </div>
+</div>
+
